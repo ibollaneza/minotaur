@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,15 +70,6 @@
             border: 2px dashed #ff4500;
             border-radius: 15px;
             display: inline-block;
-        }
-
-        .generator input {
-            font-size: 1em;
-            padding: 10px;
-            width: 300px;
-            margin: 10px;
-            border-radius: 10px;
-            border: 2px solid #ff4500;
         }
 
         .generator button {
@@ -312,7 +302,7 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>Create a Minotaur</h1>
-        <p>Generate your very own majestic Minotaur by entering a unique ID!</p>
+        <p>Generate your very own majestic Minotaur!</p>
         <div class="links">
             <a href="#how-it-works">How It Works</a>
             <a href="#minotaur-lore">Minotaur Lore & Myths</a>
@@ -321,8 +311,6 @@
 
     <!-- Generator -->
     <div class="generator" id="generator-section">
-        <label for="minotaur-id" style="display:none;">Minotaur ID</label>
-        <input type="text" id="minotaur-id" placeholder="Enter your unique ID...">
         <button id="generate-button">Generate My Minotaur</button>
     </div>
 
@@ -344,14 +332,14 @@
     <!-- How It Works Section -->
     <div class="info-section" id="how-it-works">
         <h2>How It Works</h2>
-        <p>Each Minotaur is uniquely generated from the unique ID you provide. Here’s a simple breakdown:</p>
+        <p>Each Minotaur is uniquely generated. Here’s a simple breakdown:</p>
         <ol>
-            <li><strong>ID Input:</strong> Enter a unique ID.</li>
-            <li><strong>Hashing Process:</strong> Your ID transforms into a numerical value using our special hashing function.</li>
+            <li><strong>Generate Minotaur:</strong> Click the button to generate a Minotaur.</li>
+            <li><strong>Random Selection:</strong> A Minotaur type is randomly selected for you.</li>
             <li><strong>Attribute Assignment:</strong> This determines your Minotaur’s type, horn shape, personality trait, accessory, and “strength level.”</li>
-            <li><strong>Deterministic Results:</strong> The same ID always generates the same Minotaur—uniquely yours!</li>
+            <li><strong>Unique Minotaur:</strong> Enjoy your unique Minotaur friend!</li>
         </ol>
-        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend tied directly to your unique ID!</p>
+        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend!</p>
     </div>
 
     <!-- Minotaur Lore & Myths Section -->
@@ -405,7 +393,7 @@
         </div>
 
         <h3>Rarity and Collectibility</h3>
-        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep creating different IDs to uncover legendary rarities!</p>
+        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep generating different Minotaurs to uncover legendary rarities!</p>
     </div>
 
     <!-- Footer -->
@@ -417,7 +405,6 @@
     <script>
     (function() {
         const generateButton = document.getElementById('generate-button');
-        const minotaurInput = document.getElementById('minotaur-id');
         const minotaurShowcase = document.getElementById('minotaur-showcase');
         const loadingContainer = document.getElementById('loading-container');
 
@@ -428,4 +415,10 @@
                 img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1f7-e6c3336f469f_3.png'
             },
             {
-                type: 'Forest
+                type: 'Forest Minotaur',
+                traits: ['Serene', 'Nurturing', 'Wise'],
+                img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/7ccd9c11769151fe32c03a42ae89a6e40dcb5bf0/u3462134296_Forest_Minotaur_--v_6.1_455c0c38-ace0-4f50-86b2-a5e2177c1e4e_2.png'
+            },
+            {
+                type: 'Celestial Minotaur',
+                traits: ['Dreamy',
