@@ -1,3 +1,8 @@
+Entendido. Aquí está el código HTML y JavaScript actualizado que reemplaza el botón "Hatch My Minotaur" por "Generate My Minotaur":
+
+### Código HTML y JavaScript Actualizado
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -311,7 +316,7 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>Create a Minotaur</h1>
-        <p>Hatch your very own majestic Minotaur by entering a unique ID!</p>
+        <p>Generate your very own majestic Minotaur by entering a unique ID!</p>
         <div class="links">
             <a href="#how-it-works">How It Works</a>
             <a href="#minotaur-lore">Minotaur Lore & Myths</a>
@@ -322,13 +327,13 @@
     <div class="generator" id="generator-section">
         <label for="minotaur-id" style="display:none;">Minotaur ID</label>
         <input type="text" id="minotaur-id" placeholder="Enter your unique ID...">
-        <button id="generate-button">Hatch My Minotaur</button>
+        <button id="generate-button">Generate My Minotaur</button>
     </div>
 
     <!-- Loading Spinner -->
     <div class="loading-container" id="loading-container">
         <div class="spinner"></div>
-        <p class="loading-text">Hatching Your Minotaur...</p>
+        <p class="loading-text">Generating Your Minotaur...</p>
     </div>
 
     <!-- Minotaur Showcase -->
@@ -348,7 +353,7 @@
             <li><strong>ID Input:</strong> Enter a unique ID.</li>
             <li><strong>Hashing Process:</strong> Your ID transforms into a numerical value using our special hashing function.</li>
             <li><strong>Attribute Assignment:</strong> This determines your Minotaur’s type, horn shape, personality trait, accessory, and “strength level.”</li>
-            <li><strong>Deterministic Results:</strong> The same ID always hatches the same Minotaur—uniquely yours!</li>
+            <li><strong>Deterministic Results:</strong> The same ID always generates the same Minotaur—uniquely yours!</li>
         </ol>
         <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend tied directly to your unique ID!</p>
     </div>
@@ -419,10 +424,12 @@
         const minotaurInput = document.getElementById('minotaur-id');
         const minotaurShowcase = document.getElementById('minotaur-showcase');
         const loadingContainer = document.getElementById('loading-container');
-        const logArea = document.getElementById('logArea');
 
         const MINOTAUR_TYPES = [
             {
                 type: 'Labyrinth Minotaur',
                 traits: ['Strong', 'Determined', 'Protective'],
-                img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1
+                img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1f7-e6c3336f469f_3.png'
+            },
+            {
+                type: 'Forest
