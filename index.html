@@ -1,79 +1,446 @@
-traits: ['Serene', 'Nurturing', 'Wise'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/7ccd9c11769151fe32c03a42ae89a6e40dcb5bf0/u3462134296_Forest_Minotaur_--v_6.1_455c0c38-ace0-4f50-86b2-a5e2177c1e4e_2.png'
-        },
-        {
-            type: 'Celestial Minotaur',
-            traits: ['Dreamy', 'Mysterious', 'Eternal'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Celestial_Minotaur_--v_6.1_ca9de09e-bd18-4b9c-9159-b12c9410ac28_3.png'
-        },
-        {
-            type: 'Inferno Minotaur',
-            traits: ['Fierce', 'Passionate', 'Unstoppable'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Inferno_Minotaur_--v_6.1_c18971fb-0b4a-486b-9ee9-5af64014d39d_1.png'
-        },
-        {
-            type: 'Aquatic Minotaur',
-            traits: ['Calm', 'Adaptable', 'Resourceful'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Aquatic_Minotaur_--v_6.1_8152a236-c69c-4b09-a4d1-96f22781df4f_2.png'
-        },
-        {
-            type: 'Shadow Minotaur',
-            traits: ['Enigmatic', 'Stealthy', 'Mysterious'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Shadow_Minotaur_--v_6.1_520da7f1-0d90-495d-8f90-0b2c14f454c1_0.png'
-        },
-        {
-            type: 'Crystal Minotaur',
-            traits: ['Elegant', 'Precise', 'Magical'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_crystal_minotaur_--v_6.1_2832e4cc-a51d-408a-bc76-81f4f498cc19_1.png'
-        },
-        {
-            type: 'Thunder Minotaur',
-            traits: ['Dynamic', 'Energetic', 'Bold'],
-            img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Thunder_Minotaur_Channels_the_power_of_storms_wit_529c50cd-047d-4397-adfb-b109535f7b07_1.png'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Create a Minotaur - Minotaur1.0</title>
+    <!-- Playful, retro-style font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(to bottom, #fff1eb, #ace0f9), /* pastel gradient */
+                        url('https://yourimageurl.com/minotaur-background.png'); /* replace with your own image */
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-blend-mode: lighten;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
         }
-    ];
 
-    function hashStringToNumber(str) {
-        let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash |= 0; // Convert to 32bit integer
+        /* Hero Section */
+        .hero {
+            padding: 40px 20px;
         }
-        return Math.abs(hash);
-    }
 
-    function generateMinotaur(id) {
-        const hash = hashStringToNumber(id);
-        const minotaurIndex = hash % MINOTAUR_TYPES.length;
-        return MINOTAUR_TYPES[minotaurIndex];
-    }
+        .hero h1 {
+            font-size: 2.5em;
+            color: #ff4500;
+            text-shadow: 2px 2px 3px #fff;
+            margin-bottom: 20px;
+        }
 
-    function displayMinotaur(minotaur) {
-        minotaurShowcase.style.display = 'block';
-        minotaurShowcase.innerHTML = `
-            <div class="minotaur">
-                <h3>${minotaur.type}</h3>
-                <img src="${minotaur.img}" alt="${minotaur.type}">
-                <p>Traits: ${minotaur.traits.join(', ')}</p>
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #666;
+        }
+
+        .hero .links {
+            margin-top: 20px;
+        }
+
+        .hero a {
+            color: #ff4500;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        /* Decorative emoji before navigation links */
+        .hero a[href="#how-it-works"]::before {
+            content: "🪓 ";
+        }
+        .hero a[href="#minotaur-lore"]::before {
+            content: "🐂 ";
+        }
+
+        .hero a:hover {
+            color: #ff6347;
+        }
+
+        /* Wallet Connect Button */
+        .wallet-connect {
+            margin: 20px 0;
+        }
+
+        .wallet-connect button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background: #5141fa; /* Phantom Purple */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .wallet-connect button:hover {
+            background: #443ec5;
+        }
+
+        .wallet-address {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #ff4500;
+            word-break: break-all;
+        }
+
+        /* Generator Box */
+        .generator {
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 69, 0, 0.1);
+            border: 2px dashed #ff4500;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .generator input {
+            font-size: 1em;
+            padding: 10px;
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 2px solid #ff4500;
+        }
+
+        .generator button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background: #ff4500;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .generator button:hover {
+            background: #ff6347;
+        }
+
+        /* Loading Spinner */
+        .loading-container {
+            display: none;
+            margin: 20px auto;
+        }
+
+        .loading-text {
+            color: #ff4500;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #fff1eb;
+            border-top: 5px solid #ff4500;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Minotaur Showcase */
+        .minotaur-showcase {
+            margin: 50px 0;
+        }
+
+        .minotaur-showcase h2 {
+            color: #ff4500;
+            font-size: 1.8em;
+        }
+
+        /* Single Minotaur Display */
+        .minotaur {
+            display: inline-block;
+            margin: 20px;
+            padding: 15px;
+            border: 2px solid #ff4500;
+            border-radius: 10px;
+            background: #fff;
+            color: #333;
+            text-align: left;
+            font-size: 0.8em;
+            white-space: pre;
+            overflow-x: auto;
+            position: relative;
+            width: 300px;
+        }
+
+        .minotaur p {
+            margin: 5px 0;
+        }
+
+        /* Buttons */
+        .download-btn, .share-btn {
+            margin-top: 10px;
+            font-size: 0.8em;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background 0.3s;
+        }
+
+        .download-btn {
+            background: #ff4500;
+            color: #fff;
+        }
+        .download-btn:hover {
+            background: #ff6347;
+        }
+
+        .share-btn {
+            background: #1DA1F2; /* Twitter/X Blue */
+            color: #fff;
+        }
+        .share-btn:hover {
+            background: #40a9f3;
+        }
+
+        /* Log Area */
+        .log {
+            width: 90%;
+            max-width: 600px;
+            background-color: #111;
+            font-family: monospace;
+            font-size: 0.85em;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 6px;
+            margin: 20px auto;
+            overflow-y: auto;
+            max-height: 200px;
+            white-space: pre-wrap;
+            color: #fff;
+            text-align: left;
+        }
+
+        .log span.info {
+            color: #0f0;
+        }
+        .log span.warning {
+            color: #ff0;
+        }
+        .log span.error {
+            color: #f00;
+        }
+        .log span.success {
+            color: #0ff;
+        }
+
+        /* Info Section */
+        .info-section {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .info-section h2 {
+            text-align: center;
+            color: #ff4500;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .info-section h3 {
+            color: #ff4500;
+            margin-top: 30px;
+            font-size: 1em;
+        }
+
+        .info-section p {
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        /* Steps List */
+        .info-section ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            list-style: none;
+            padding: 0;
+        }
+        .info-section ol li::before {
+            content: "🪓 ";
+            margin-right: 5px;
+        }
+
+        /* Lore Grid */
+        .lore-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .lore-item {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            color: #333;
+            border: 2px solid #ff4500;
+        }
+
+        .lore-item h4 {
+            margin-top: 0;
+            color: #ff4500;
+            font-size: 1em;
+        }
+
+        .lore-item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: none; /* Initially hide images */
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px 0;
+            background: #ff4500;
+            color: #fff;
+            margin-top: 50px;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 600px) {
+            .minotaur {
+                width: 90%;
+            }
+            .generator input {
+                width: 80%;
+            }
+            .lore-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Create a Minotaur</h1>
+        <p>Connect your Phantom wallet and hatch your very own majestic Minotaur!</p>
+        <div class="links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#minotaur-lore">Minotaur Lore & Myths</a>
+        </div>
+    </div>
+
+    <!-- Wallet Connect Section -->
+    <div class="wallet-connect">
+        <button id="connect-wallet">Connect Phantom Wallet</button>
+        <div id="wallet-address" class="wallet-address"></div>
+    </div>
+
+    <!-- Generator -->
+    <div class="generator" id="generator-section" style="display: none;">
+        <label for="minotaur-id" style="display:none;">Minotaur ID</label>
+        <input type="text" id="minotaur-id" placeholder="Enter your unique ID...">
+        <button id="generate-button">Hatch My Minotaur</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-container" id="loading-container">
+        <div class="spinner"></div>
+        <p class="loading-text">Hatching Your Minotaur...</p>
+    </div>
+
+    <!-- Minotaur Showcase -->
+    <div class="minotaur-showcase" id="minotaur-showcase" style="display: none;">
+        <h2>Your Minotaur Friend</h2>
+        <!-- Generated Minotaur will appear here -->
+    </div>
+
+    <!-- Log Area -->
+    <div class="log" id="logArea"></div>
+
+    <!-- How It Works Section -->
+    <div class="info-section" id="how-it-works">
+        <h2>How It Works</h2>
+        <p>Each Minotaur is uniquely generated from your wallet address and an optional unique ID you provide. Here’s a simple breakdown:</p>
+        <ol>
+            <li><strong>Connect Wallet:</strong> Use your Phantom wallet to connect securely.</li>
+            <li><strong>ID Input:</strong> Enter a unique ID or use your wallet address.</li>
+            <li><strong>Hashing Process:</strong> Your wallet address and ID transform into a numerical value using our special hashing function.</li>
+            <li><strong>Attribute Assignment:</strong> This determines your Minotaur’s type, horn shape, personality trait, accessory, and “strength level.”</li>
+            <li><strong>Deterministic Results:</strong> The same wallet and ID always hatch the same Minotaur—uniquely yours!</li>
+        </ol>
+        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend tied directly to your wallet and ID!</p>
+    </div>
+
+    <!-- Minotaur Lore & Myths Section -->
+    <div class="info-section" id="minotaur-lore">
+        <h2>Minotaur Lore & Myths</h2>
+        <p>From ancient legends to modern fantasy, Minotaurs symbolize strength and mystery. Each species carries its own traits, from labyrinth guardians to forest protectors.</p>
+        <p>Some Minotaurs guard ancient secrets, others roam wild landscapes or protect sacred sites. Below are known Minotaur archetypes—each with a story to discover:</p>
+
+        <!-- Lore Grid -->
+        <div class="lore-grid">
+            <div class="lore-item">
+                <h4>Labyrinth Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1f7-e6c3336f469f_3.png" alt="Labyrinth Minotaur">
+                <p>A fierce guardian of ancient mazes. Strong, determined, and protective.</p>
             </div>
-        `;
-    }
+            <div class="lore-item">
+                <h4>Forest Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/7ccd9c11769151fe32c03a42ae89a6e40dcb5bf0/u3462134296_Forest_Minotaur_--v_6.1_455c0c38-ace0-4f50-86b2-a5e2177c1e4e_2.png" alt="Forest Minotaur">
+                <p>A nature-bound Minotaur, intertwined with the growth of ancient trees. Serene, nurturing, and wise.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Celestial Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Celestial_Minotaur_--v_6.1_ca9de09e-bd18-4b9c-9159-b12c9410ac28_3.png" alt="Celestial Minotaur">
+                <p>With wings shimmering with stardust, this Minotaur navigates the cosmos. Dreamy, mysterious, and eternal.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Inferno Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Inferno_Minotaur_--v_6.1_c18971fb-0b4a-486b-9ee9-5af64014d39d_1.png" alt="Inferno Minotaur">
+                <p>Born from the deepest fires, this Minotaur commands intense flames. Fierce, passionate, and unstoppable.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Aquatic Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Aquatic_Minotaur_--v_6.1_8152a236-c69c-4b09-a4d1-96f22781df4f_2.png" alt="Aquatic Minotaur">
+                <p>Glides through pixelated waters, merging fire and water. Calm, adaptable, and resourceful.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Shadow Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Shadow_Minotaur_--v_6.1_520da7f1-0d90-495d-8f90-0b2c14f454c1_0.png" alt="Shadow Minotaur">
+                <p>Emerges from the darkest nights, cloaked in shadows. Enigmatic, stealthy, and mysterious.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Crystal Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_crystal_minotaur_--v_6.1_2832e4cc-a51d-408a-bc76-81f4f498cc19_1.png" alt="Crystal Minotaur">
+                <p>With horns made of radiant crystals, reflecting light in dazzling patterns. Elegant, precise, and magical.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Thunder Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Thunder_Minotaur_Channels_the_power_of_storms_wit_529c50cd-047d-4397-adfb-b109535f7b07_1.png" alt="Thunder Minotaur">
+                <p>Channels the power of storms, with horns crackling with electricity. Dynamic, energetic, and bold.</p>
+            </div>
+        </div>
 
-    generateButton.addEventListener('click', () => {
-        const id = minotaurInput.value.trim();
-        if (id) {
-            loadingContainer.style.display = 'block';
-            setTimeout(() => {
-                const minotaur = generateMinotaur(id);
-                displayMinotaur(minotaur);
-                loadingContainer.style.display = 'none';
-            }, 1000); // Simulate loading time
-        } else {
-            alert('Please enter a unique ID.');
-        }
-    });
-})();
-</script>
-</body>
-</html>
+        <h3>Rarity and Collectibility</h3>
+        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep creating different IDs to uncover legendary rarities!</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 Create a Minotaur | Raising
