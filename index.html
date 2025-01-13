@@ -62,6 +62,33 @@
             color: #ff6347;
         }
 
+        /* Wallet Connect Button */
+        .wallet-connect {
+            margin: 20px 0;
+        }
+
+        .wallet-connect button {
+            font-size: 1em;
+            padding: 10px 20px;
+            background: #5141fa; /* Phantom Purple */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .wallet-connect button:hover {
+            background: #443ec5;
+        }
+
+        .wallet-address {
+            margin-top: 10px;
+            font-size: 0.8em;
+            color: #ff4500;
+            word-break: break-all;
+        }
+
         /* Generator Box */
         .generator {
             margin: 30px 0;
@@ -70,6 +97,15 @@
             border: 2px dashed #ff4500;
             border-radius: 15px;
             display: inline-block;
+        }
+
+        .generator input {
+            font-size: 1em;
+            padding: 10px;
+            width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 2px solid #ff4500;
         }
 
         .generator button {
@@ -143,13 +179,6 @@
 
         .minotaur p {
             margin: 5px 0;
-        }
-
-        .minotaur img {
-            width: 100%;
-            border-radius: 10px;
-            display: block;
-            margin-bottom: 10px;
         }
 
         /* Buttons */
@@ -309,22 +338,30 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>Create a Minotaur</h1>
-        <p>Generate your very own majestic Minotaur!</p>
+        <p>Connect your Phantom wallet and hatch your very own majestic Minotaur!</p>
         <div class="links">
             <a href="#how-it-works">How It Works</a>
             <a href="#minotaur-lore">Minotaur Lore & Myths</a>
         </div>
     </div>
 
+    <!-- Wallet Connect Section -->
+    <div class="wallet-connect">
+        <button id="connect-wallet">Connect Phantom Wallet</button>
+        <div id="wallet-address" class="wallet-address"></div>
+    </div>
+
     <!-- Generator -->
-    <div class="generator" id="generator-section">
-        <button id="generate-button">Generate My Minotaur</button>
+    <div class="generator" id="generator-section" style="display: none;">
+        <label for="minotaur-id" style="display:none;">Minotaur ID</label>
+        <input type="text" id="minotaur-id" placeholder="Enter your unique ID...">
+        <button id="generate-button">Hatch My Minotaur</button>
     </div>
 
     <!-- Loading Spinner -->
     <div class="loading-container" id="loading-container">
         <div class="spinner"></div>
-        <p class="loading-text">Generating Your Minotaur...</p>
+        <p class="loading-text">Hatching Your Minotaur...</p>
     </div>
 
     <!-- Minotaur Showcase -->
@@ -339,14 +376,15 @@
     <!-- How It Works Section -->
     <div class="info-section" id="how-it-works">
         <h2>How It Works</h2>
-        <p>Each Minotaur is uniquely generated. Here’s a simple breakdown:</p>
+        <p>Each Minotaur is uniquely generated from your wallet address and an optional unique ID you provide. Here’s a simple breakdown:</p>
         <ol>
-            <li><strong>Generate Minotaur:</strong> Click the button to generate a Minotaur.</li>
-            <li><strong>Random Selection:</strong> A Minotaur type is randomly selected for you.</li>
+            <li><strong>Connect Wallet:</strong> Use your Phantom wallet to connect securely.</li>
+            <li><strong>ID Input:</strong> Enter a unique ID or use your wallet address.</li>
+            <li><strong>Hashing Process:</strong> Your wallet address and ID transform into a numerical value using our special hashing function.</li>
             <li><strong>Attribute Assignment:</strong> This determines your Minotaur’s type, horn shape, personality trait, accessory, and “strength level.”</li>
-            <li><strong>Unique Minotaur:</strong> Enjoy your unique Minotaur friend!</li>
+            <li><strong>Deterministic Results:</strong> The same wallet and ID always hatch the same Minotaur—uniquely yours!</li>
         </ol>
-        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend!</p>
+        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend tied directly to your wallet and ID!</p>
     </div>
 
     <!-- Minotaur Lore & Myths Section -->
@@ -400,28 +438,9 @@
         </div>
 
         <h3>Rarity and Collectibility</h3>
-        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep generating different Minotaurs to uncover legendary rarities!</p>
+        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep creating different IDs to uncover legendary rarities!</p>
     </div>
 
     <!-- Footer -->
     <footer>
-        © 2025 Create a Minotaur | Raising Mythical Friends with Passion
-    </footer>
-
-    <!-- Script -->
-    <script>
-    (function() {
-        const generateButton = document.getElementById('generate-button');
-        const minotaurShowcase = document.getElementById('minotaur-showcase');
-        const loadingContainer = document.getElementById('loading-container');
-
-        const MINOTAUR_TYPES = [
-            {
-                type: 'Labyrinth Minotaur',
-                traits: ['Strong', 'Determined', 'Protective'],
-                img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1f7-e6c3336f469f_3.png'
-            },
-            {
-                type: 'Forest Minotaur',
-                traits: ['Serene', 'Nurturing', 'Wise'],
-                img: 'https://raw.githubusercontent.com/ibollaneza/minotaur/7ccd9c11769151fe32c03a42ae89a6e40dcb5bf0/u3462134296_Forest_Minotaur_--v_6.1_455c0c38-ace0-4f50-86b2-a5e2177c1e4e
+        © 2025 Create a Minotaur | Raising
