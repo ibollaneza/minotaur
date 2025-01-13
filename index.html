@@ -324,112 +324,123 @@
             .minotaur {
                 width: 90%;
             }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: linear-gradient(to bottom, #333, #555);
-                color: #eee;
+            .generator input {
+                width: 80%;
             }
-            .hero a, .wallet-connect button, .generator button, .download-btn, .share-btn {
-                color: #eee;
-            }
-            .log {
-                background-color: #222;
-                border-color: #666;
-            }
-            .info-section, .lore-item {
-                background: rgba(255, 255, 255, 0.1);
-                border-color: #eee;
-                color: #eee;
+            .lore-grid {
+                grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
 <body>
+
+    <!-- Hero Section -->
     <div class="hero">
-        <h1>Create Your Own Minotaur</h1>
-        <p>Generate a unique digital Minotaur and explore its lore!</p>
+        <h1>Create a Minotaur</h1>
+        <p>Connect your Phantom wallet and hatch your very own majestic Minotaur!</p>
         <div class="links">
             <a href="#how-it-works">How It Works</a>
-            <a href="#minotaur-lore">Minotaur Lore</a>
+            <a href="#minotaur-lore">Minotaur Lore & Myths</a>
         </div>
     </div>
 
+    <!-- Wallet Connect Section -->
     <div class="wallet-connect">
-        <button id="connect-wallet">Connect Wallet</button>
-        <div class="wallet-address" id="wallet-address"></div>
+        <button id="connect-wallet">Connect Phantom Wallet</button>
+        <div id="wallet-address" class="wallet-address"></div>
     </div>
 
-    <div class="generator">
-        <input type="text" id="minotaur-name" placeholder="Enter Minotaur Name"/>
-        <button id="generate-minotaur">Generate Minotaur</button>
+    <!-- Generator -->
+    <div class="generator" id="generator-section" style="display: none;">
+        <label for="minotaur-id" style="display:none;">Minotaur ID</label>
+        <input type="text" id="minotaur-id" placeholder="Enter your unique ID...">
+        <button id="generate-button">Hatch My Minotaur</button>
     </div>
 
+    <!-- Loading Spinner -->
     <div class="loading-container" id="loading-container">
         <div class="spinner"></div>
-        <div class="loading-text">Generating Minotaur...</div>
+        <p class="loading-text">Hatching Your Minotaur...</p>
     </div>
 
-    <div class="minotaur-showcase" id="minotaur-showcase">
-        <h2>My Minotaurs</h2>
-        <!-- Generated Minotaurs will be displayed here -->
+    <!-- Minotaur Showcase -->
+    <div class="minotaur-showcase" id="minotaur-showcase" style="display: none;">
+        <h2>Your Minotaur Friend</h2>
+        <!-- Generated Minotaur will appear here -->
     </div>
 
+    <!-- Log Area -->
+    <div class="log" id="logArea"></div>
+
+    <!-- How It Works Section -->
     <div class="info-section" id="how-it-works">
         <h2>How It Works</h2>
-        <p>Using blockchain technology, you can create a unique Minotaur linked to your digital wallet.</p>
+        <p>Each Minotaur is uniquely generated from your wallet address and an optional unique ID you provide. Here’s a simple breakdown:</p>
         <ol>
-            <li>Connect your wallet by clicking the "Connect Wallet" button.</li>
-            <li>Enter a name for your Minotaur in the text box provided.</li>
-            <li>Click "Generate Minotaur" to create a unique digital creature.</li>
-            <li>Download or share your Minotaur with friends!</li>
+            <li><strong>Connect Wallet:</strong> Use your Phantom wallet to connect securely.</li>
+            <li><strong>ID Input:</strong> Enter a unique ID or use your wallet address.</li>
+            <li><strong>Hashing Process:</strong> Your wallet address and ID transform into a numerical value using our special hashing function.</li>
+            <li><strong>Attribute Assignment:</strong> This determines your Minotaur’s type, horn shape, personality trait, accessory, and “strength level.”</li>
+            <li><strong>Deterministic Results:</strong> The same wallet and ID always hatch the same Minotaur—uniquely yours!</li>
         </ol>
+        <p>This approach mixes mythical randomness with consistent logic, giving you a special Minotaur friend tied directly to your wallet and ID!</p>
     </div>
 
+    <!-- Minotaur Lore & Myths Section -->
     <div class="info-section" id="minotaur-lore">
-        <h2>Minotaur Lore</h2>
+        <h2>Minotaur Lore & Myths</h2>
+        <p>From ancient legends to modern fantasy, Minotaurs symbolize strength and mystery. Each species carries its own traits, from labyrinth guardians to forest protectors.</p>
+        <p>Some Minotaurs guard ancient secrets, others roam wild landscapes or protect sacred sites. Below are known Minotaur archetypes—each with a story to discover:</p>
+
+        <!-- Lore Grid -->
         <div class="lore-grid">
             <div class="lore-item">
-                <h4>The Labyrinth</h4>
-                <p>Legend speaks of a vast maze built to house the mighty Minotaur. Each digital Minotaur draws power from its connection to the Labyrinth.</p>
+                <h4>Labyrinth Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Labyrinth_Minotaur_--v_6.1_ec356ef3-d5cd-4184-a1f7-e6c3336f469f_3.png" alt="Labyrinth Minotaur">
+                <p>A fierce guardian of ancient mazes. Strong, determined, and protective.</p>
             </div>
             <div class="lore-item">
-                <h4>The Minotaur's Strength</h4>
-                <p>Each Minotaur is imbued with a unique strength that defines its power in the digital realm.</p>
+                <h4>Forest Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/7ccd9c11769151fe32c03a42ae89a6e40dcb5bf0/u3462134296_Forest_Minotaur_--v_6.1_455c0c38-ace0-4f50-86b2-a5e2177c1e4e_2.png" alt="Forest Minotaur">
+                <p>A nature-bound Minotaur, intertwined with the growth of ancient trees. Serene, nurturing, and wise.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Celestial Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Celestial_Minotaur_--v_6.1_ca9de09e-bd18-4b9c-9159-b12c9410ac28_3.png" alt="Celestial Minotaur">
+                <p>With wings shimmering with stardust, this Minotaur navigates the cosmos. Dreamy, mysterious, and eternal.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Inferno Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Inferno_Minotaur_--v_6.1_c18971fb-0b4a-486b-9ee9-5af64014d39d_1.png" alt="Inferno Minotaur">
+                <p>Born from the deepest fires, this Minotaur commands intense flames. Fierce, passionate, and unstoppable.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Aquatic Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Aquatic_Minotaur_--v_6.1_8152a236-c69c-4b09-a4d1-96f22781df4f_2.png" alt="Aquatic Minotaur">
+                <p>Glides through pixelated waters, merging fire and water. Calm, adaptable, and resourceful.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Shadow Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Shadow_Minotaur_--v_6.1_520da7f1-0d90-495d-8f90-0b2c14f454c1_0.png" alt="Shadow Minotaur">
+                <p>Emerges from the darkest nights, cloaked in shadows. Enigmatic, stealthy, and mysterious.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Crystal Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_crystal_minotaur_--v_6.1_2832e4cc-a51d-408a-bc76-81f4f498cc19_1.png" alt="Crystal Minotaur">
+                <p>With horns made of radiant crystals, reflecting light in dazzling patterns. Elegant, precise, and magical.</p>
+            </div>
+            <div class="lore-item">
+                <h4>Thunder Minotaur</h4>
+                <img src="https://raw.githubusercontent.com/ibollaneza/minotaur/6d2d14cd7b5dae8aa54e268b4fb62b22e0df5a36/u3462134296_Thunder_Minotaur_Channels_the_power_of_storms_wit_529c50cd-047d-4397-adfb-b109535f7b07_1.png" alt="Thunder Minotaur">
+                <p>Channels the power of storms, with horns crackling with electricity. Dynamic, energetic, and bold.</p>
             </div>
         </div>
+
+        <h3>Rarity and Collectibility</h3>
+        <p>While these are the main archetypes, some Minotaurs develop special traits—rare horn shapes, exclusive accessories, or unique strength abilities. Keep creating different IDs to uncover legendary rarities!</p>
     </div>
 
+    <!-- Footer -->
     <footer>
-        &copy; 2025 Minotaur1.0. All Rights Reserved.
-    </footer>
-
-    <script>
-        // JavaScript for connecting wallet and generating Minotaur
-        document.getElementById('connect-wallet').addEventListener('click', function() {
-            // Simulate wallet connection
-            document.getElementById('wallet-address').innerText = "0x1234...abcd";
-        });
-
-        document.getElementById('generate-minotaur').addEventListener('click', function() {
-            const name = document.getElementById('minotaur-name').value.trim();
-            if (!name) {
-                alert('Please enter a name for your Minotaur!');
-                return;
-            }
-            
-            document.getElementById('loading-container').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('loading-container').style.display = 'none';
-                const showcase = document.getElementById('minotaur-showcase');
-                const minotaur = document.createElement('div');
-                minotaur.className = 'minotaur';
-                minotaur.innerHTML = `<p><strong>Name:</strong> ${name}</p><p><strong>Strength:</strong> ${Math.floor(Math.random() * 100)}</p>`;
-                showcase.appendChild(minotaur);
-            }, 2000);
-        });
-    </script>
-</body>
-</html>
+        © 2025 Create a Minotaur | Raising
