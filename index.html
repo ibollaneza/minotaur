@@ -444,3 +444,97 @@
     <!-- Footer -->
     <footer>
         © 2025 Create a Minotaur | Raising
+    </footer>
+
+    <!-- JavaScript para conectarse a Phantom y generar el Minotaur -->
+    <script>
+        const connectButton = document.getElementById('connect-wallet');
+        const walletAddressDiv = document.getElementById('wallet-address');
+        const generatorSection = document.getElementById('generator-section');
+        const generateButton = document.getElementById('generate-button');
+        const minotaurShowcase = document.getElementById('minotaur-showcase');
+        const logArea = document.getElementById('logArea');
+        const loadingContainer = document.getElementById('loading-container');
+
+        // 1. Conectar la cartera Phantom
+        connectButton.addEventListener('click', async () => {
+            // Verificamos si la ventana tiene disponible la inyección de Phantom
+            if ('solana' in window) {
+                // Verificamos si la cartera es Phantom
+                if (window.solana.isPhantom) {
+                    try {
+                        // Conectamos la cartera
+                        const response = await window.solana.connect();
+                        const publicKey = response.publicKey.toString();
+
+                        // Mostramos la dirección pública
+                        walletAddressDiv.textContent = `Dirección de la wallet: ${publicKey}`;
+                        addLog(`Conectado con dirección: ${publicKey}`, 'success');
+
+                        // Mostramos la sección del generador
+                        generatorSection.style.display = 'inline-block';
+                    } catch (err) {
+                        addLog(`Error al conectar: ${err.message}`, 'error');
+                    }
+                } else {
+                    addLog('Phantom no está instalado. Por favor, instala la extensión de Phantom.', 'warning');
+                }
+            } else {
+                addLog('No se encontró objeto solana en window. Asegúrate de tener la extensión Phantom.', 'warning');
+            }
+        });
+
+        // 2. Generar un Minotaur (ejemplo ficticio)
+        generateButton.addEventListener('click', async () => {
+            const minotaurIdInput = document.getElementById('minotaur-id');
+            const minotaurId = minotaurIdInput.value.trim();
+
+            if (!minotaurId) {
+                addLog('Por favor, ingresa un ID único para tu Minotaur.', 'warning');
+                return;
+            }
+
+            // Simula proceso "determinista" de creación
+            try {
+                loadingContainer.style.display = 'block';
+
+                // Aquí iría la lógica real de hashing/atributos.  
+                // Lo dejamos como ejemplo de un "fetch" o cualquier proceso asíncrono.
+                await new Promise((resolve) => setTimeout(resolve, 2000));
+
+                // Ocultamos la animación de carga
+                loadingContainer.style.display = 'none';
+
+                // Mostramos en pantalla algo que represente al Minotaur
+                minotaurShowcase.style.display = 'block';
+                minotaurShowcase.innerHTML = `
+                    <h2>¡Tu Minotaur está listo!</h2>
+                    <div class="minotaur">
+                        <p><strong>ID: </strong>${minotaurId}</p>
+                        <p><strong>Horns: </strong>Crescent</p>
+                        <p><strong>Fuerza: </strong>87</p>
+                        <p><strong>Personalidad: </strong>Feroz y protector</p>
+                        <p><em>¡Disfruta tu nuevo compañero!</em></p>
+                    </div>
+                `;
+
+                addLog(`Minotaur creado con ID: ${minotaurId}`, 'info');
+            } catch (error) {
+                loadingContainer.style.display = 'none';
+                addLog(`Error generando el Minotaur: ${error.message}`, 'error');
+            }
+        });
+
+        // Función para agregar mensajes al área de log
+        function addLog(message, type) {
+            // type puede ser: 'info', 'success', 'warning', 'error'
+            const span = document.createElement('span');
+            span.textContent = message;
+            span.classList.add(type);
+            logArea.appendChild(span);
+            logArea.appendChild(document.createElement('br'));
+        }
+    </script>
+
+</body>
+</html>
